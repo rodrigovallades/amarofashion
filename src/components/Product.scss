@@ -48,6 +48,10 @@
     justify-content: center;
   }
 
+  &__sizes--invalid &__size {
+    border-color: red;    
+  }
+
   &__size {
     cursor: pointer;
     padding: 0 .3rem;

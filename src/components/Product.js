@@ -13,14 +13,16 @@ export class Product extends Component {
     this.state = {
       size: '',
       sku: '',
-      quantity: 0
+      quantity: 0,
+      canAdd: false,
+      triedToAdd: false
     }
     this.renderSizes = this.renderSizes.bind(this)
   }
 
   renderSizes() {
     return this.props.sizes && this.props.sizes.length ? (
-      <div className="product__sizes">
+      <div className={`product__sizes ${this.state.triedToAdd && !this.state.canAdd ? 'product__sizes--invalid' : ''}`}>
         {
           this.props.sizes
           .filter(size => size.available)
@@ -47,15 +49,12 @@ export class Product extends Component {
   }
 
   updateSizes(size) {
-    if(this.state.sku !== size.sku) {
-      this.setState({ size: size.size, sku: size.sku })
-    } else {
-      this.setState({ size: '', sku: '' })
-    }
+    this.setState({ size: size.size, sku: size.sku, canAdd: true })
   }
 
   addToCart() {
-    if (this.state.sku && this.state.size) {
+    this.setState({ triedToAdd: true })
+    if (this.state.canAdd) {
       const product = {
         sku: this.state.sku,
         size: this.state.size,
@@ -64,9 +63,9 @@ export class Product extends Component {
         price: this.props.actual_price.split(" ")[1].replace(',', '.'),
         quantity: 1
       }
-      if (this.props.cart.find(p => { return p.sku === product.sku }) === undefined) {
+      // disallow adding same product to cart
+      if (this.props.cart.find(p => { return p.sku === product.sku }) === undefined)
         this.props.add(product)
-      }
     }
   }
 
