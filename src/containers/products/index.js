@@ -48,6 +48,12 @@ export class Products extends Component {
   }
 }
 
+Products.defaultProps = {
+  getProducts: () => {},
+  products: [],
+  cart: []
+}
+
 const mapStateToProps = state => ({
   cart: state.cart.data,
   products: state.products.data,

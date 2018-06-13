@@ -8,10 +8,6 @@ import './cart.css'
 
 export class Cart extends Component {
 
-  componentWillMount() {
-    console.log(this.props.cart)
-  }
-
   render() {
     return (
       <div>
@@ -49,6 +45,11 @@ export class Cart extends Component {
       </div>
     )
   }
+}
+
+Cart.defaultProps = {
+  toggle: () => {},
+  cart: { data: [] }
 }
 
 const mapStateToProps = state => ({

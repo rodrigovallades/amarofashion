@@ -13,14 +13,13 @@ export default (state = initialState, action) => {
     case actions.PRODUCTS_FETCH_REQUEST:
       return {
         ...state,
-        loading: true,
-        data: []
+        loading: true
       };
-    case actions.PRODUCTS_FETCH_SUCCESS:
+    case actions.PRODUCTS_FETCH_SUCCESS:      
       return {
         ...state,
         loading: false,
-        data: action.data
+        data: action.data.products
       };
     case actions.PRODUCTS_FETCH_FAILURE:
       return {
@@ -50,7 +49,7 @@ export const getProducts = () => {
     return fetch(`products.json`)
       .then(data => data.json())
       .then(data => {
-        dispatch(success(data.products))
+        dispatch(success(data))
       })
       .catch(function(error) {
         console.error(error)

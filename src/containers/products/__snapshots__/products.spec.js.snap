@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Products container renders "Products" deep correctly 1`] = `
+<div>
+  <h1
+    className="app__title"
+  >
+    Products (
+    0
+    )
+  </h1>
+  <div
+    className="products"
+  />
+</div>
+`;
