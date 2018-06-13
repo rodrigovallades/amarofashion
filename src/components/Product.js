@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+import { add, remove } from '../modules/cart'
 
 import './Product.css'
 
@@ -8,6 +12,7 @@ export class Product extends Component {
     super(props)
     this.state = {
       size: '',
+      sku: '',
       quantity: 0
     }
     this.renderSizes = this.renderSizes.bind(this)
@@ -21,7 +26,7 @@ export class Product extends Component {
           .filter(size => size.available)
           .map((size, i) => {
             return (
-              <div className={`product__size ${this.state.size === size.size ? 'product__size--selected' : ''}`} key={i} onClick={() => this.updateSizes(size.size)}>{size.size}</div>
+              <div className={`product__size ${this.state.sku === size.sku ? 'product__size--selected' : ''}`} key={i} onClick={() => this.updateSizes(size)}>{size.size}</div>
             )
           })
         }
@@ -42,10 +47,23 @@ export class Product extends Component {
   }
 
   updateSizes(size) {
-    if(this.state.size !== size) {
-      this.setState({ size })
+    if(this.state.sku !== size.sku) {
+      this.setState({ size: size.size, sku: size.sku })
     } else {
-      this.setState({ size: '' })
+      this.setState({ size: '', sku: '' })
+    }
+  }
+
+  addToCart() {
+    if (this.state.sku && this.state.size) {
+      const product = {
+        sku: this.state.sku,
+        size: this.state.size,
+        name: this.props.name
+      }
+      if (this.props.cart.find(p => { return p.sku === product.sku }) === undefined) {        
+        this.props.add(product)
+      }
     }
   }
 
@@ -66,9 +84,22 @@ export class Product extends Component {
         <h4 className="product__name">{this.props.name}</h4>
         {this.renderPrices()}
         {this.renderSizes()}
+        <button onClick={() => this.addToCart()}>comprar</button>
       </div>
     )
   }
 }
 
-export default Product
+const mapStateToProps = state => ({
+  cart: state.cart.data
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  add,
+  remove
+}, dispatch)
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Product)

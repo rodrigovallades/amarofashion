@@ -25,7 +25,8 @@ export class Products extends Component {
           discount_percentage={product.discount_percentage}
           installments={product.installments}
           onSale={product.on_sale}
-          sizes={product.sizes} />
+          sizes={product.sizes}
+        />
       )
     })
   }
@@ -43,7 +44,7 @@ export class Products extends Component {
 }
 
 const mapStateToProps = state => ({
-  products: state.products.products,
+  products: state.products.data,
   loading: state.products.loading,
   filter: state.products.filter
 })

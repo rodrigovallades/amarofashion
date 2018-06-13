@@ -1,4 +1,4 @@
-export const initialState = { products: [], filter: '', loading: false }
+export const initialState = { data: [], filter: '', loading: false }
 
 export const actions = {
   PRODUCTS_FETCH_REQUEST: 'PRODUCTS_FETCH_REQUEST',
@@ -14,19 +14,19 @@ export default (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-        products: []
+        data: []
       };
     case actions.PRODUCTS_FETCH_SUCCESS:
       return {
         ...state,
         loading: false,
-        products: action.products
+        data: action.data
       };
     case actions.PRODUCTS_FETCH_FAILURE:
       return {
         ...state,
         loading: false,
-        products: []
+        data: []
       };
     case actions.PRODUCTS_UPDATE_FILTER:
       return {
@@ -42,15 +42,15 @@ export default (state = initialState, action) => {
 export const getProducts = () => {
   return dispatch => {
     function request() { return { type: actions.PRODUCTS_FETCH_REQUEST } }
-    function success(products) { return { type: actions.PRODUCTS_FETCH_SUCCESS, products } }
+    function success(data) { return { type: actions.PRODUCTS_FETCH_SUCCESS, data } }
     function failure(error) { return { type: actions.PRODUCTS_FETCH_FAILURE, error } }
 
     dispatch(request());
 
     return fetch(`products.json`)
-      .then(products => products.json())
-      .then(products => {
-        dispatch(success(products.products))
+      .then(data => data.json())
+      .then(data => {
+        dispatch(success(data.products))
       })
       .catch(function(error) {
         console.error(error)
