@@ -7,10 +7,6 @@
   min-width: 20%;
   position: relative;
 
-  &:hover {
-    border-color: $mainAccent;
-  }
-
   &__onsale {
     position: absolute;
     background-color: #000;
@@ -26,9 +22,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size: 0.8rem;
-    line-height: 2em;
+    line-height: 1.6em;
     font-weight: 400;
-    margin: .5rem 0 .5rem 0;
+    margin: .5rem 0 0 0;
     text-align: center;
   }
 
@@ -55,14 +51,49 @@
     cursor: pointer;
     padding: 0 .3rem;
     margin: 0 .2rem;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     line-height: 1.4em;
     border: 1px solid $subtleAccent;
     border-radius: $uiRadius;
+    user-select: none;
 
     &--selected {
-      border-color: red;
+      background-color: $mainAccent;
+      color: $mainAccentFont;
     }
+  }
+
+  &__prices {
+    text-align: center;
+    min-height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &__price {
+
+    &--discount {
+      padding-right: .3rem;
+    }
+
+    &--actual {
+      font-weight: 700;
+      font-size: .85rem;
+    }
+
+    &--regular {
+      text-decoration: line-through;
+      color: $fadedText;
+      padding-right: .3rem;
+      font-size: .85rem;
+    }
+  }
+
+  &__installments {
+    padding-left: .5rem;
+    font-size: .75rem;
   }
 
   @include breakpoint(small) {
@@ -70,6 +101,17 @@
     flex-direction: column;
     flex: 1 50%;
     min-width: 50%;
+
+    &__price {
+
+      &--actual, &--regular {
+        font-size: .9rem;
+      }
+    }
+
+    &__installments {
+      font-size: .8rem;
+    }
 
     &__size {
       padding: 0 .5rem;

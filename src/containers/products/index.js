@@ -20,9 +20,9 @@ export class Products extends Component {
           key={i}
           image={product.image}
           name={product.name}
-          price_regular={product.price_regular}
-          price_actual={product.price_actual}
-          discount={product.discount}
+          regular_price={product.regular_price}
+          actual_price={product.actual_price}
+          discount_percentage={product.discount_percentage}
           installments={product.installments}
           onSale={product.on_sale}
           sizes={product.sizes} />
@@ -33,8 +33,8 @@ export class Products extends Component {
   render() {
     return (
       <div>
-        <h1>Products</h1>
-        <div className='products'>
+        <h1 className="app__title">Products</h1>
+        <div className="products">
           {this.renderProducts()}
         </div>
       </div>

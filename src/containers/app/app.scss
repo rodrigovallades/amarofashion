@@ -3,12 +3,20 @@
 
 .app {
 
+  &__title {
+    font-size: 1.3rem;
+  }
+
   &__container {
     padding-left: .5rem;
     padding-right: .5rem;
   }
 
   @include breakpoint(medium) {
+
+    &__title {
+      font-size: 1.8rem;
+    }
 
     &__container {
       padding-left: 3rem;

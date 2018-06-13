@@ -13,15 +13,15 @@ export class Product extends Component {
     this.renderSizes = this.renderSizes.bind(this)
   }
 
-  renderSizes(sizes) {
-    return sizes && sizes.length ? (
+  renderSizes() {
+    return this.props.sizes && this.props.sizes.length ? (
       <div className="product__sizes">
         {
-          sizes
+          this.props.sizes
           .filter(size => size.available)
           .map((size, i) => {
             return (
-              <div className={`product__size ${this.state.size == size.size ? 'product__size--selected' : ''}`} key={i} onClick={() => this.updateSizes(size.size)}>{size.size}</div>
+              <div className={`product__size ${this.state.size === size.size ? 'product__size--selected' : ''}`} key={i} onClick={() => this.updateSizes(size.size)}>{size.size}</div>
             )
           })
         }
@@ -29,8 +29,20 @@ export class Product extends Component {
     ) : null
   }
 
+  renderPrices() {
+    return (
+      <div className="product__prices">
+        { this.props.actual_price && this.props.actual_price !== this.props.regular_price &&
+          <span className="product__price--regular">{this.props.regular_price}</span>
+        }
+        <span className="product__price--actual">{this.props.actual_price}</span>
+        <span className="product__installments">{this.props.installments}</span>
+      </div>
+    )
+  }
+
   updateSizes(size) {
-    if(this.state.size != size) {
+    if(this.state.size !== size) {
       this.setState({ size })
     } else {
       this.setState({ size: '' })
@@ -42,16 +54,18 @@ export class Product extends Component {
       <div key={this.props.index} className={`product ${this.props.onSale ? 'product--sale' : ''}`} onClick={this.props.onClick}>
         <div className="product__image">
           {this.props.onSale && (
-            <div className="product__onsale">SALE</div>
+            <div className="product__onsale">
+              { this.props.discount_percentage &&
+                <span className="product__price--discount">{this.props.discount_percentage}</span>
+              }
+              SALE
+            </div>
           )}
           <img src={this.props.image} alt="product" />
         </div>
         <h4 className="product__name">{this.props.name}</h4>
-        <div className="product__price--regular">{this.props.price_regular}</div>
-        <div className="product__price--actual">{this.props.price_actual}</div>
-        <div className="product__price--discount">{this.props.discount}</div>
-        <div className="product__installments">{this.props.installments}</div>
-        {this.renderSizes(this.props.sizes)}
+        {this.renderPrices()}
+        {this.renderSizes()}
       </div>
     )
   }
