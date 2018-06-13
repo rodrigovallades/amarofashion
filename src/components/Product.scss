@@ -3,7 +3,6 @@
 
 .product {
   padding: .5rem;
-  cursor: pointer;
   flex: 0 1 20%;
   min-width: 20%;
   position: relative;
@@ -33,11 +32,10 @@
     text-align: center;
   }
 
-
   &__image {
     width: 100%;
     position: relative;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $subtleAccent;
 
     img {
       width: 100%;
@@ -48,11 +46,36 @@
     }
   }
 
+  &__sizes {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__size {
+    cursor: pointer;
+    padding: 0 .3rem;
+    margin: 0 .2rem;
+    font-size: 0.85rem;
+    line-height: 1.4em;
+    border: 1px solid $subtleAccent;
+    border-radius: $uiRadius;
+
+    &--selected {
+      border-color: red;
+    }
+  }
+
   @include breakpoint(small) {
     padding: 1rem;
     flex-direction: column;
     flex: 1 50%;
     min-width: 50%;
+
+    &__size {
+      padding: 0 .5rem;
+      line-height: 1.8em;
+      margin: 0 .3rem;
+    }
 
     &__image {
       background-color: #f4f4f4;
