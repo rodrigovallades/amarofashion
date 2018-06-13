@@ -1,0 +1,9 @@
+@import '../../styles/_mixins.scss';
+
+.products {
+
+  @include breakpoint(small) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

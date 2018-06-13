@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import Product from '../../components/Product'
 import { getProducts, setFilter } from '../../modules/products'
+
+import './products.css'
 
 export class Products extends Component {
 
@@ -11,9 +14,17 @@ export class Products extends Component {
   }
 
   renderProducts() {
-    return this.props.products.map((product, index) => {
+    return this.props.products.map((product, i) => {
       return (
-        <div key={index}>{product.name}</div>
+        <Product
+          key={i}
+          image={product.image}
+          name={product.name}
+          price_regular={product.price_regular}
+          price_actual={product.price_actual}
+          discount={product.discount}
+          installments={product.installments}
+          sizes={product.sizes} />
       )
     })
   }

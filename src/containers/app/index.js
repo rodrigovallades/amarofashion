@@ -5,11 +5,14 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+
 import Products from '../products';
+
+import './app.css';
 
 const App = () => (
   <Router>
-    <div>
+    <div className="app__container">
       <Switch>
         <Route path="/products" exact component={Products} />
         <Redirect from="/" to="/products" />

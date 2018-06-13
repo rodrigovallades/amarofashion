@@ -1,0 +1,74 @@
+@import '../styles/_mixins.scss';
+@import '../styles/_variables.scss';
+
+.product {
+  padding: .5rem;
+  cursor: pointer;
+  flex: 0 1 20%;
+  min-width: 20%;
+
+  &__name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 1rem;
+    line-height: 2em;
+    font-weight: 400;
+    margin: 1rem 0 .5rem 0;
+    text-align: center;
+  }
+
+
+  &__image {
+    width: 100%;
+    position: relative;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      min-height: 100%;
+      border-style: none;
+      display: block;
+    }
+  }
+
+  &:hover {
+    border-color: $mainAccent;
+  }
+
+  @include breakpoint(small) {
+    padding: 1rem;
+    flex-direction: column;
+    flex: 1 50%;
+    min-width: 50%;
+
+    &__image {
+      background-color: #f4f4f4;
+      padding-bottom: 127%;
+
+      img {
+        position: absolute;
+        height: 100%;
+        bottom: 0;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+
+  @include breakpoint(medium) {
+    flex: 1 33%;
+    min-width: 33%;
+  }
+
+  @include breakpoint(large) {
+    flex: 1 25%;
+    min-width: 25%;
+    padding: 1.5rem;
+
+    &__name {
+      font-size: 1.2rem;
+    }
+  }
+
+}
