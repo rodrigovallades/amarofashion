@@ -6,15 +6,30 @@
   cursor: pointer;
   flex: 0 1 20%;
   min-width: 20%;
+  position: relative;
+
+  &:hover {
+    border-color: $mainAccent;
+  }
+
+  &__onsale {
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    top: 0;
+    right: 0;
+    padding: 0.2rem;
+    z-index: 10;
+  }
 
   &__name {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 2em;
     font-weight: 400;
-    margin: 1rem 0 .5rem 0;
+    margin: .5rem 0 .5rem 0;
     text-align: center;
   }
 
@@ -22,6 +37,7 @@
   &__image {
     width: 100%;
     position: relative;
+    border-bottom: 1px solid #ddd;
 
     img {
       width: 100%;
@@ -30,10 +46,6 @@
       border-style: none;
       display: block;
     }
-  }
-
-  &:hover {
-    border-color: $mainAccent;
   }
 
   @include breakpoint(small) {
@@ -67,7 +79,7 @@
     padding: 1.5rem;
 
     &__name {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
   }
 

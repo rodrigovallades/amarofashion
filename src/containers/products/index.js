@@ -24,6 +24,7 @@ export class Products extends Component {
           price_actual={product.price_actual}
           discount={product.discount}
           installments={product.installments}
+          onSale={product.on_sale}
           sizes={product.sizes} />
       )
     })
