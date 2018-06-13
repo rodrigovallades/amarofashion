@@ -7,7 +7,7 @@ export class Product extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      size: [],
+      size: '',
       quantity: 0
     }
     this.renderSizes = this.renderSizes.bind(this)
@@ -21,7 +21,7 @@ export class Product extends Component {
           .filter(size => size.available)
           .map((size, i) => {
             return (
-              <div className={`product__size ${this.state.size.indexOf(size.size) !== -1 ? 'product__size--selected' : ''}`} key={i} onClick={() => this.updateSizes(size.size)}>{size.size}</div>
+              <div className={`product__size ${this.state.size == size.size ? 'product__size--selected' : ''}`} key={i} onClick={() => this.updateSizes(size.size)}>{size.size}</div>
             )
           })
         }
@@ -30,12 +30,10 @@ export class Product extends Component {
   }
 
   updateSizes(size) {
-    const found = this.state.size.indexOf(size)
-
-    if(found === -1) {
-      this.setState({ size: [...this.state.size, size] })
+    if(this.state.size != size) {
+      this.setState({ size })
     } else {
-      this.setState({ size: [...this.state.size.slice(0, found), ...this.state.size.slice(found+1)] })
+      this.setState({ size: '' })
     }
   }
 
