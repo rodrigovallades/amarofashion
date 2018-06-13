@@ -36,7 +36,7 @@ export class Products extends Component {
   render() {
     return (
       <div>
-        <h1 className="app__title">Products</h1>
+        <h1 className="app__title">Products ({this.props.products.length})</h1>
         {this.props.cart.length > 0 && (
           <Cart />
         )}
