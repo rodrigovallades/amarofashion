@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
 }
 
 // action creators
-export const add = product => {  
+export const add = product => {
   return dispatch => {
     dispatch({
       type: actions.CART_ADD,
@@ -33,8 +33,11 @@ export const add = product => {
   }
 }
 
-
-export const remove = product => ({
-  type: actions.CART_REMOVE,
-  product
-})
+export const remove = product => {
+  return dispatch => {
+    dispatch({
+      type: actions.CART_REMOVE,
+      product
+    })
+  }
+}

@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import Product from '../../components/Product'
+import Cart from '../cart'
 import { getProducts, setFilter } from '../../modules/products'
 
 import './products.css'
@@ -35,6 +36,9 @@ export class Products extends Component {
     return (
       <div>
         <h1 className="app__title">Products</h1>
+        {this.props.cart.length > 0 && (
+          <Cart />
+        )}
         <div className="products">
           {this.renderProducts()}
         </div>
@@ -44,6 +48,7 @@ export class Products extends Component {
 }
 
 const mapStateToProps = state => ({
+  cart: state.cart.data,
   products: state.products.data,
   loading: state.products.loading,
   filter: state.products.filter

@@ -59,9 +59,12 @@ export class Product extends Component {
       const product = {
         sku: this.state.sku,
         size: this.state.size,
-        name: this.props.name
+        name: this.props.name,
+        image: this.props.image,
+        price: this.props.actual_price.split(" ")[1].replace(',', '.'),
+        quantity: 1
       }
-      if (this.props.cart.find(p => { return p.sku === product.sku }) === undefined) {        
+      if (this.props.cart.find(p => { return p.sku === product.sku }) === undefined) {
         this.props.add(product)
       }
     }
@@ -84,7 +87,7 @@ export class Product extends Component {
         <h4 className="product__name">{this.props.name}</h4>
         {this.renderPrices()}
         {this.renderSizes()}
-        <button onClick={() => this.addToCart()}>comprar</button>
+        <button className="product__add" onClick={() => this.addToCart()}>Add to cart</button>
       </div>
     )
   }

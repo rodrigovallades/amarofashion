@@ -2,10 +2,8 @@
 @import '../styles/_variables.scss';
 
 .product {
-  padding: .5rem;
-  flex: 0 1 20%;
-  min-width: 20%;
   position: relative;
+  text-align: center;
 
   &__onsale {
     position: absolute;
@@ -32,6 +30,8 @@
     width: 100%;
     position: relative;
     border-bottom: 1px solid $subtleAccent;
+    min-height: 50px;
+    background-color: $verySubtleAccent;
 
     img {
       width: 100%;
@@ -54,7 +54,6 @@
     font-size: 0.8rem;
     line-height: 1.4em;
     border: 1px solid $subtleAccent;
-    border-radius: $uiRadius;
     user-select: none;
 
     &--selected {
@@ -96,11 +95,28 @@
     font-size: .75rem;
   }
 
+  &__add {
+    cursor: pointer;
+    padding: 0.3rem 0;
+    width: 100%;
+    background-color: $mainAccent;
+    color: $mainAccentFont;
+    border: 0;
+    font-size: .85rem;
+    margin-top: 0.8rem;
+  }
+
   @include breakpoint(small) {
     padding: 1rem;
     flex-direction: column;
     flex: 1 50%;
     min-width: 50%;
+
+    &__add {
+      padding: 0.5rem 2.5rem;
+      width: auto;
+      font-size: .9rem;
+    }
 
     &__price {
 
@@ -120,7 +136,6 @@
     }
 
     &__image {
-      background-color: #f4f4f4;
       padding-bottom: 127%;
 
       img {

@@ -1,0 +1,136 @@
+@import '../../styles/_variables.scss';
+@import '../../styles/_mixins.scss';
+
+.cart {
+  background-color: #fff;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  &__info {
+    flex: 1 1 0%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__title {
+    padding: 0.5rem;
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  &__container {
+    border-top: 1px solid $subtleAccent;
+  }
+
+  &__item {
+    padding: 0.5rem;
+    border-bottom: 1px solid $subtleAccent;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex: 1 0;
+    position: relative;
+
+    &-price {
+      text-align: right;
+      font-size: 0.85rem;
+    }
+
+    &-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+
+    &-details {
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin: .5rem 0;
+
+      span + span {
+        padding-left: 0.75rem
+      }
+    }
+
+    &-image {
+      margin-right: .6rem;
+      width: 3.2rem;
+      background-color: $verySubtleAccent;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  &__total {
+    text-align: center;
+    font-size: 1.3rem;
+    padding: .5rem;
+    font-weight: 700;
+    border-bottom: 1px solid $subtleAccent;
+  }
+
+  @include breakpoint(small) {
+    border: 1px solid $subtleAccent;
+    left: auto;
+    right: 10px;
+    width: 25rem;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &__item {
+
+      &-image {
+        margin-right: 1rem;
+        width: 4rem;
+      }
+    }
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      overflow: auto;
+    }
+
+    &__total {
+      border-top: 1px solid $subtleAccent;
+      border-bottom: 0;
+    }
+  }
+
+  @include breakpoint(medium) {
+    &__total {
+      font-size: 1.4rem;
+      padding: 1rem;
+    }
+
+    &__title {
+      font-size: 1.8rem;
+      padding: 1rem;
+    }
+
+    &__item {
+      padding: 1rem;
+    }
+  }
+}
