@@ -11,7 +11,8 @@ import './products.css'
 export class Products extends Component {
 
   componentWillMount() {
-    this.props.getProducts()
+    if (!this.props.products.length)
+      this.props.getProducts()
   }
 
   renderProducts() {

@@ -1,8 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/lib/integration/react';
 import { ConnectedRouter } from 'react-router-redux';
-import store, { history } from './store';
+import { store, persistor, history } from './store';
 import App from './containers/app';
 import 'normalize.css/normalize.css';
 
@@ -16,7 +17,9 @@ const target = document.querySelector('#app');
 render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App />
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
     </ConnectedRouter>
   </Provider>,
   target

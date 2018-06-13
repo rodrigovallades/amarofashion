@@ -1,12 +1,21 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
+
 import rootReducer from './modules';
+
+const persistConfig = {
+ key: 'root',
+ storage: storage,
+ stateReconciler: autoMergeLevel2 // see "Merge Process" section for details.
+};
 
 export const history = createHistory();
 
-const initialState = {};
 const enhancers = [];
 const middleware = [
   thunk,
@@ -26,10 +35,10 @@ const composedEnhancers = compose(
   ...enhancers
 );
 
-const store = createStore(
-  rootReducer,
-  initialState,
+const pReducer = persistReducer(persistConfig, rootReducer);
+
+export const store = createStore(
+  pReducer,
   composedEnhancers
 );
-
-export default store;
+export const persistor = persistStore(store);

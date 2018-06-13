@@ -23,13 +23,13 @@ export class Cart extends Component {
                     <span className="cart__item-size">Size: {product.size}</span>
                     <span className="cart__item-quantity">Quantity: {product.quantity}</span>
                   </div>
-                  <div className="cart__item-price">{product.price.replace('.', ',')}</div>
+                  <div className="cart__item-price">R$ {product.price.replace('.', ',')}</div>
                 </div>
               </div>
             )}
           </div>
         </div>
-        <div className="cart__total">Total: {parseFloat(this.props.cart.reduce(( total, c ) => parseFloat(total) + parseFloat(c.price), 0)).toFixed(2).replace('.', ',')}</div>
+        <div className="cart__total">Total: R$ {parseFloat(this.props.cart.reduce(( total, c ) => parseFloat(total) + parseFloat(c.price), 0)).toFixed(2).replace('.', ',')}</div>
       </div>
     )
   }

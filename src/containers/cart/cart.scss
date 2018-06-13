@@ -84,7 +84,7 @@
   @include breakpoint(small) {
     border: 1px solid $subtleAccent;
     left: auto;
-    right: 10px;
+    right: 0;
     width: 25rem;
     bottom: 0;
     display: flex;
