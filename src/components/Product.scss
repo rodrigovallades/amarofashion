@@ -83,6 +83,7 @@
 
     &--selected {
       background-color: $mainAccent;
+      border-color: $mainAccent;
       color: $mainAccentFont;
     }
   }
