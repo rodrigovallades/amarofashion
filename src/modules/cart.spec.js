@@ -1,10 +1,4 @@
-import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
-
 import reducer, { actions, add, remove, update, toggle, initialState } from './cart'
-
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
 
 describe('Cart action creators', () => {
 
@@ -34,10 +28,6 @@ describe('Cart action creators', () => {
 })
 
 describe('Cart reducer', () => {
-
-  beforeEach(function() {
-		const store = mockStore(initialState);
-	});
 
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual(initialState)
@@ -89,12 +79,26 @@ describe('Cart reducer', () => {
     expect(
       reducer(undefined, {
         type: actions.CART_UPDATE_QUANTITY_ADD,
-        sku: 'sku1234'
+        sku: 'sku1234',
       })
     ).toEqual(
       {
         data: [],
-        isActive: true,
+        isActive: false,
+      }
+    )
+  })
+
+  it(`should handle ${actions.CART_UPDATE_QUANTITY_REMOVE}`, () => {
+    expect(
+      reducer(undefined, {
+        type: actions.CART_UPDATE_QUANTITY_REMOVE,
+        sku: 'sku1234',
+      })
+    ).toEqual(
+      {
+        data: [],
+        isActive: false,
       }
     )
   })

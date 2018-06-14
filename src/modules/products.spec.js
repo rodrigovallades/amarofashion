@@ -16,7 +16,7 @@ describe('Products action creators', () => {
 
     const expectedActions = [
       { type: actions.PRODUCTS_FETCH_REQUEST },
-      { type: actions.PRODUCTS_FETCH_SUCCESS, data: [ { name: 'product1' } ]}
+      { type: actions.PRODUCTS_FETCH_SUCCESS, data: [ { name: 'product1' } ]},
     ]
     const store = mockStore(initialState)
     return (
@@ -65,7 +65,7 @@ describe('Products reducer', () => {
   it(`should handle ${actions.PRODUCTS_FETCH_FAILURE}`, () => {
     expect(
       reducer({}, {
-        type: actions.PRODUCTS_FETCH_FAILURE
+        type: actions.PRODUCTS_FETCH_FAILURE,
       })
     ).toEqual(
       {
