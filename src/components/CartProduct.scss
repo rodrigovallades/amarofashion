@@ -40,9 +40,11 @@
     }
   }
 
-  &-quantity {
-    padding: 0 .5rem;
+  &-quantity {    
     font-size: .85rem;
+    width: 1.8rem;
+    display: inline-block;
+    text-align: center;
   }
 
   &-quantity-control {
@@ -58,7 +60,7 @@
     display: inline-block;
   }
 
-  &-price {    
+  &-price {
     font-size: 0.85rem;
     position: absolute;
     bottom: 0;
