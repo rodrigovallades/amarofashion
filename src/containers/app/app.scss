@@ -4,8 +4,23 @@
 .app {
 
   &__title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin: .5rem 0;
+  }
+
+  &__logo {
+    width: auto;
+    z-index: 900;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+
+    svg {
+      height: 1rem;
+      max-width: 100%;
+      width: auto;
+    }
   }
 
   &__container {
@@ -14,6 +29,18 @@
   }
 
   @include breakpoint(medium) {
+
+    &__logo {
+      z-index: 900;
+      margin: 20px;
+
+      svg {
+        height: 2.2rem;
+      }
+    }
+
+
+
 
     &__title {
       font-size: 1.8rem;
