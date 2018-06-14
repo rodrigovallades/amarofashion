@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { add, remove } from '../modules/cart'
+import { add, remove, update } from '../modules/cart'
 
 import './Product.css'
 
@@ -63,9 +63,17 @@ export class Product extends Component {
         price: this.props.actual_price.split(" ")[1].replace(',', '.'),
         quantity: 1
       }
-      // disallow adding same product to cart
-      if (this.props.cart.find(p => { return p.sku === product.sku }) === undefined)
+
+      let cart = [ ...this.props.cart ]
+      let already = cart.find(p => { return p.sku === product.sku })
+
+      // if product is not already added to the cart
+      if (already === undefined) {
         this.props.add(product)
+      } else {
+        already.quantity = already.quantity + 1
+        this.props.update(already)
+      }
     }
   }
 
@@ -98,7 +106,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   add,
-  remove
+  remove,
+  update
 }, dispatch)
 
 export default connect(

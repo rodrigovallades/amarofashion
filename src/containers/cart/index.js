@@ -16,7 +16,7 @@ export class Cart extends Component {
             <div className="cart__wrapper">
               <div className="cart__header">
                 <span className="cart__close" onClick={() => this.props.toggle(false)}>x</span>
-                <h2 className="cart__title">Cart ({this.props.cart.data.length})</h2>
+                <h2 className="cart__title">Cart ({this.props.cart.data.reduce(( total, c ) => total + c.quantity, 0)})</h2>
               </div>
               <div className="cart__container">
                 {this.props.cart.data.map((product, i) =>
@@ -35,7 +35,7 @@ export class Cart extends Component {
                 )}
               </div>
             </div>
-            <div className="cart__total">Total: R$ {parseFloat(this.props.cart.data.reduce(( total, c ) => parseFloat(total) + parseFloat(c.price), 0)).toFixed(2).replace('.', ',')}</div>
+            <div className="cart__total">Total: R$ {parseFloat(this.props.cart.data.reduce(( total, c ) => parseFloat(total) + (parseFloat(c.price) * parseFloat(c.quantity)), 0)).toFixed(2).replace('.', ',')}</div>
           </div>
         )}
         {!this.props.cart.isActive && (
