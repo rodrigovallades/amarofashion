@@ -79,7 +79,7 @@ export class Product extends Component {
 
   render() {
     return (
-      <div key={this.props.index} className={`product ${this.props.onSale ? 'product--sale' : ''}`} onClick={this.props.onClick}>
+      <div className={`product ${this.props.onSale ? 'product--sale' : ''}`} onClick={this.props.onClick}>
         <div className="product__image">
           {this.props.onSale && (
             <div className="product__onsale">

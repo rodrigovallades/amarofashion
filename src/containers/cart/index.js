@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import CartProduct from '../../components/CartProduct'
 import { remove, toggle } from '../../modules/cart'
 
 import './cart.css'
@@ -20,18 +21,7 @@ export class Cart extends Component {
               </div>
               <div className="cart__container">
                 {this.props.cart.data.map((product, i) =>
-                  <div key={i} className="cart__item">
-                    <span className="cart__item-remove" onClick={() => this.props.remove(product)}>x</span>
-                    <div className="cart__item-image"><img src={product.image} alt='Product in cart' /></div>
-                    <div className="cart__info">
-                      <div className="cart__item-name">{product.name}</div>
-                      <div className="cart__item-details">
-                        <span className="cart__item-size">Size: {product.size}</span>
-                        <span className="cart__item-quantity">Quantity: {product.quantity}</span>
-                      </div>
-                      <div className="cart__item-price">R$ {product.price.replace('.', ',')}</div>
-                    </div>
-                  </div>
+                  <CartProduct key={i} image={product.image} name={product.name} size={product.size} quantity={product.quantity} price={product.price} sku={product.sku} />
                 )}
               </div>
             </div>

@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
     case actions.CART_REMOVE:
       return {
         ...state,
-        data: state.data.filter(p => action.product !== p),
+        data: state.data.filter(p => action.sku !== p.sku),
       };
     case actions.CART_UPDATE_ITEM:
       console.log(action.updated)
@@ -42,9 +42,9 @@ export const add = product => ({
   product
 })
 
-export const remove = product => ({
+export const remove = sku => ({
   type: actions.CART_REMOVE,
-  product
+  sku
 })
 
 export const update = updated => ({
