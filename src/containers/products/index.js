@@ -65,7 +65,7 @@ export class Products extends Component {
         </div>
         <div className="products__toolbar">
           <h1 className="products__title">Products ({this.filter(this.props.products).length})</h1>
-          <div className={`products__filter-sale ${this.state.filterSale ? 'products__filter-sale--active' : ''}`} onClick={() => this.setState({ filterSale: !this.state.filterSale })}>Show only products on sale</div>
+          <div className={`products__filter-sale ${this.state.filterSale ? 'products__filter-sale--active' : ''}`} onClick={() => this.setState({ filterSale: !this.state.filterSale })}>Filter on sale</div>
         </div>
         <div className="products__filter">
           <Filter updateSearch={this.updateSearch.bind(this)} searchText={this.state.filterText} placeholder='Filter by product name' />

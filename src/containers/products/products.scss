@@ -16,7 +16,13 @@
     font-size: .85rem;
     background-color: $mainAccent;
     border-color: $mainAccent;
-    color: $mainAccentFont
+    color: $mainAccentFont;
+
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      content: "\f155";
+      padding-right: .3rem;
+    }
   }
 
   &__filter-sale--active {
