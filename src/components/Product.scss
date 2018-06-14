@@ -98,7 +98,6 @@
   &__prices {
     text-align: center;
     padding: .2rem 0 .5rem 0;
-    line-height: 1.2rem;
   }
 
   &__price {
@@ -147,6 +146,10 @@
     &__add {
       padding: 0.5rem 2.5rem;
       font-size: .9rem;
+    }
+
+    &__prices {
+      min-height: 3rem;
     }
 
     &__price {
