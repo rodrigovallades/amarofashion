@@ -42,7 +42,7 @@
       border-radius: 50%;
       color: #fff;
       display: block;
-      font-size: .85rem;
+      font-size: .70rem;
       line-height: 1.5rem;
       width: 1.5rem;
       position: absolute;
@@ -105,14 +105,13 @@
     background-color: #fff;
     text-align: center;
     font-size: 1.3rem;
-    padding: .5rem;
+    padding: 1rem;
     font-weight: 700;
     border-top: 1px solid $subtleAccent;
     border-bottom: 0;
   }
 
-  @include breakpoint(small) {
-
+  @include breakpoint(medium) {
     border-left: 1px solid $subtleAccent;
     border-bottom: 0;
     width: 25rem;
@@ -123,8 +122,8 @@
     }
 
     &__toggler {
-      right: .8rem;
       top: 1rem;
+      right: 3rem;
       padding: .6rem .8rem;
 
       &-badge {
@@ -140,17 +139,9 @@
         width: 30px;
       }
     }
-  }
-
-  @include breakpoint(medium) {
-
-    &__toggler {
-      right: 3rem;
-    }
 
     &__total {
       font-size: 1.4rem;
-      padding: 1rem;
     }
 
     &__title {

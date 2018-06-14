@@ -24,17 +24,17 @@ export default (state = initialState, action) => {
       }
     case actions.CART_UPDATE_QUANTITY_ADD:
       return {
+        ...state,
         data: state.data.map(item => {
           return (action.sku === item.sku) ? { ...item, quantity: item.quantity + 1 } : item
         }),
-        isActive: true,
       }
     case actions.CART_UPDATE_QUANTITY_REMOVE:
       return {
+        ...state,
         data: state.data.map(item => {
           return (action.sku === item.sku) ? { ...item, quantity: item.quantity - 1 } : item
         }),
-        isActive: true,
       }
     case actions.TOGGLE_CART :
       return {

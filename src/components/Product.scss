@@ -74,10 +74,10 @@
 
   &__size {
     cursor: pointer;
-    padding: 0 .3rem;
-    margin: 0 .2rem;
+    padding: 0 .4rem;
+    margin: 0 .15rem;
     font-size: 0.8rem;
-    line-height: 1.4em;
+    line-height: 1.5em;
     border: 1px solid $subtleAccent;
     user-select: none;
 
@@ -140,7 +140,6 @@
 
     &__add {
       padding: 0.5rem 2.5rem;
-      width: auto;
       font-size: .9rem;
     }
 
@@ -153,12 +152,6 @@
 
     &__installments {
       font-size: .8rem;
-    }
-
-    &__size {
-      padding: 0 .5rem;
-      line-height: 1.8em;
-      margin: 0 .3rem;
     }
 
     &__image {
@@ -177,12 +170,21 @@
   @include breakpoint(medium) {
     flex: 0 1 25%;
     min-width: 25%;
+
+    &__size {
+      padding: 0 .4rem;
+      line-height: 1.8em;
+    }
   }
 
   @include breakpoint(large) {
     flex: 0 1 20%;
     min-width: 20%;
     padding: 1.5rem;
+
+    &__add {
+      width: auto;
+    }
 
     &__name {
       font-size: .9rem;
