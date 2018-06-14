@@ -8,11 +8,11 @@
 
   &__onsale {
     position: absolute;
-    background-color: #000;
+    background-color: $priceHighlight;
     color: #fff;
     top: 0;
     right: 0;
-    padding: 0.2rem;
+    padding: 0.5rem;
     z-index: 10;
   }
 
@@ -175,17 +175,17 @@
   }
 
   @include breakpoint(medium) {
-    flex: 0 1 33%;
-    min-width: 33%;
+    flex: 0 1 25%;
+    min-width: 25%;
   }
 
   @include breakpoint(large) {
-    flex: 0 1 25%;
-    min-width: 25%;
+    flex: 0 1 20%;
+    min-width: 20%;
     padding: 1.5rem;
 
     &__name {
-      font-size: 1.1rem;
+      font-size: .9rem;
     }
   }
 
