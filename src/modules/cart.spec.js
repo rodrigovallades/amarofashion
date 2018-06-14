@@ -6,7 +6,7 @@ import reducer, { actions, add, remove, toggle, initialState } from './cart'
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-describe('Cert action creators', () => {
+describe('Cart action creators', () => {
 
   it('dispatches the correct actions on successful fetch request', () => {
 
@@ -17,6 +17,10 @@ describe('Cert action creators', () => {
     expect(toggle(true)).toEqual({
       type: actions.TOGGLE_CART,
       payload: true
+    })
+    expect(remove({ name: 'product1'})).toEqual({
+      type: actions.CART_REMOVE,
+      product: { name: 'product1'}
     })
   })
 })
@@ -55,6 +59,20 @@ describe('Cart reducer', () => {
       {
         data: [{ name: 'product1' }],
         isActive: true,
+      }
+    )
+  })
+
+  it(`should handle ${actions.CART_REMOVE}`, () => {
+    expect(
+      reducer(undefined, {
+        type: actions.CART_REMOVE,
+        product: { name: 'product666' },
+      })
+    ).toEqual(
+      {
+        data: [],
+        isActive: false,
       }
     )
   })

@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
     case actions.CART_REMOVE:
       return {
         ...state,
-        data: [],
+        data: state.data.filter(p => action.product !== p),
       };
     case actions.TOGGLE_CART:
       return {

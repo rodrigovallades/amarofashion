@@ -87,7 +87,7 @@
   }
 
   &__item {
-    padding: 0.5rem;
+    padding: .5rem;
     border-bottom: 1px solid $subtleAccent;
     display: flex;
     align-items: flex-start;
@@ -95,8 +95,17 @@
     flex: 1 0;
     position: relative;
 
-    &:last-child {
-      border-bottom: 0;
+    &-remove {
+      height: 1rem;
+      width: 1rem;
+      text-align: center;
+      line-height: .8rem;
+      font-size: 1.3em;
+      position: absolute;
+      right: .5rem;
+      top: .5rem;
+      cursor: pointer;
+      z-index: 10;
     }
 
     &-price {
@@ -170,6 +179,15 @@
     }
 
     &__item {
+
+      &-remove {
+        height: 1rem;
+        width: 1rem;
+        line-height: .8rem;
+        font-size: 1.3em;
+        right: 1rem;
+        top: 1rem;
+      }
 
       &-image {
         margin-right: 1rem;

@@ -21,6 +21,7 @@ export class Cart extends Component {
               <div className="cart__container">
                 {this.props.cart.data.map((product, i) =>
                   <div key={i} className="cart__item">
+                    <span className="cart__item-remove" onClick={() => this.props.remove(product)}>x</span>
                     <div className="cart__item-image"><img src={product.image} alt='Product in cart' /></div>
                     <div className="cart__info">
                       <div className="cart__item-name">{product.name}</div>

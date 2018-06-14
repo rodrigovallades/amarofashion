@@ -61,7 +61,7 @@ describe('Products reducer', () => {
       }
     )
   })
-  
+
   it(`should handle ${actions.PRODUCTS_FETCH_FAILURE}`, () => {
     expect(
       reducer({}, {
