@@ -29,6 +29,7 @@ I believe I met all the requirements for this challenges, but I also included so
 - The cart opens when adding a new product; this is the default behaviour. But if the user adds the same product again, it won't open subsequently. Just a small UX improvement so the user doesn't have to close the cart again if adding more quantity to the same product;
 - Added a button filter to show only products on sale;
 - Added a text filter by name;
+- Some product images are broken in the included JSON file. I made sure to treat this exception and add a placeholder image when no image found;
 - If a product size is not available, it won't be shown to the user. I believe this is a better UX approach than showing a disabled button;
 - User can add quantity and remove products from cart.
 
