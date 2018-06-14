@@ -82,7 +82,7 @@ export class Product extends Component {
   render() {
     return (
       <div className={`product ${this.props.onSale ? 'product--sale' : ''}`} onClick={this.props.onClick}>
-        <div className="product__image">
+        <div className={`product__image ${!this.props.image ? 'product__image--broken' : ''}`}>
           {this.props.onSale && (
             <div className="product__onsale">
               { this.props.discount_percentage &&
@@ -91,7 +91,9 @@ export class Product extends Component {
               SALE
             </div>
           )}
-          <img src={this.props.image} alt="product" />
+          {this.props.image &&
+            <img src={this.props.image} alt="Product" />
+          }
         </div>
         <h4 className="product__name">{this.props.name}</h4>
         {this.renderPrices()}

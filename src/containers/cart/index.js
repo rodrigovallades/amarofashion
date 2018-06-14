@@ -16,7 +16,7 @@ export class Cart extends Component {
           <div className="cart">
             <div className="cart__wrapper">
               <div className="cart__header">
-                <span className="cart__close" onClick={() => this.props.toggle(false)}>x</span>
+                <span className="cart__close" onClick={() => this.props.toggle(false)}></span>
                 <h2 className="cart__title">Cart ({this.props.cart.data.reduce(( total, c ) => total + c.quantity, 0)})</h2>
               </div>
               <div className="cart__container">
@@ -30,7 +30,7 @@ export class Cart extends Component {
         )}
         {!this.props.cart.isActive && (
           <div className="cart__toggler" onClick={() => this.props.toggle(true)}>
-            <div>Cart <span className="cart__toggler-badge">{this.props.cart.data.reduce(( total, c ) => total + c.quantity, 0)}</span></div>
+            <div><span className="cart__toggler-badge">{this.props.cart.data.reduce(( total, c ) => total + c.quantity, 0)}</span></div>
           </div>
         )}
       </div>

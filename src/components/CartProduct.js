@@ -11,8 +11,12 @@ export class CartProduct extends Component {
   render() {
     return (
       <div className="cart__item">
-        <span className="cart__item-remove" onClick={() => this.props.remove(this.props.sku)}>x</span>
-        <div className="cart__item-image"><img src={this.props.image} alt='Product in cart' /></div>
+        <span className="cart__item-remove" onClick={() => this.props.remove(this.props.sku)}></span>
+        <div className={`cart__item-image ${!this.props.image ? 'cart__item-image--broken' : ''}`}>
+          {this.props.image &&
+            <img src={this.props.image} alt="Product in cart" />
+          }
+        </div>
         <div className="cart__info">
           <div className="cart__item-name">{this.props.name}</div>
           <div className="cart__item-details">

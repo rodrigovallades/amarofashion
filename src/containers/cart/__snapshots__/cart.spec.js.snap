@@ -7,7 +7,6 @@ exports[`Cart container renders "Cart" deep correctly 1`] = `
     onClick={[Function]}
   >
     <div>
-      Cart 
       <span
         className="cart__toggler-badge"
       >

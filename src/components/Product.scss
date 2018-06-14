@@ -31,8 +31,28 @@
     width: 100%;
     position: relative;
     border-bottom: 1px solid $subtleAccent;
-    min-height: 50px;
+    min-height: 80px;
     background-color: $verySubtleAccent;
+
+    &--broken {
+      position: relative;
+
+      &::before {
+        font-size: 4rem;
+        height: 80px;
+        line-height: 80px;
+        width: 60px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin: -40px 0 0 -30px;
+        text-align: center;
+        font-family: "Font Awesome 5 Free";
+        content: "\f1c5";
+        color: #ccc;
+        display: block;
+      }
+    }
 
     img {
       width: 100%;
@@ -49,7 +69,7 @@
   }
 
   &__sizes--invalid &__size {
-    border-color: red;    
+    border-color: red;
   }
 
   &__size {

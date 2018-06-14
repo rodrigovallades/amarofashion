@@ -26,6 +26,17 @@
     padding: .4rem .7rem;
     font-size: .85rem;
 
+    &::before {
+      font-size: 1.3rem;
+      height: 20px;
+      line-height: 20px;
+      width: 20px;
+      text-align: center;
+      font-family: "Font Awesome 5 Free";
+      content: "\f290";
+      display: block;
+    }
+
     &-badge {
       background-color: $standOut;
       border-radius: 50%;
@@ -72,12 +83,22 @@
     width: 1rem;
     text-align: center;
     line-height: .8rem;
-    font-size: 1.3em;
+    font-size: 1.2rem;
     position: absolute;
     left: 10px;
     top: 50%;
     margin-top: -.5rem;
     cursor: pointer;
+
+    &::before {      
+      height: 1rem;
+      line-height: 1rem;
+      width: 1rem;
+      text-align: center;
+      font-family: "Font Awesome 5 Free";
+      content: "\f00d";
+      display: block;
+    }
   }
 
   &__container {
@@ -116,6 +137,13 @@
         font-size: 1rem;
         line-height: 1.7rem;
         width: 1.7rem;
+      }
+
+      &::before {
+        font-size: 1.6rem;
+        height: 30px;
+        line-height: 30px;
+        width: 30px;
       }
     }
   }
