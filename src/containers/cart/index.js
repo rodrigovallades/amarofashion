@@ -40,7 +40,7 @@ export class Cart extends Component {
         )}
         {!this.props.cart.isActive && (
           <div className="cart__toggler" onClick={() => this.props.toggle(true)}>
-            <div>Cart <span className="cart__toggler-badge">{this.props.cart.data.length}</span></div>
+            <div>Cart <span className="cart__toggler-badge">{this.props.cart.data.reduce(( total, c ) => total + c.quantity, 0)}</span></div>
           </div>
         )}
       </div>
