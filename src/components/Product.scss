@@ -97,11 +97,8 @@
 
   &__prices {
     text-align: center;
-    min-height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    padding: .2rem 0 .5rem 0;
+    line-height: 1.2rem;
   }
 
   &__price {
@@ -112,20 +109,21 @@
 
     &--actual {
       font-weight: 700;
-      font-size: .85rem;
+      font-size: .8rem;
     }
 
     &--regular {
       text-decoration: line-through;
       color: $fadedText;
-      padding-right: .3rem;
-      font-size: .85rem;
+      padding-right: .4rem;
+      font-size: .8rem;
     }
   }
 
   &__installments {
-    padding-left: .5rem;
+    padding-left: .4rem;
     font-size: .75rem;
+    display: block;
   }
 
   &__add {
@@ -153,13 +151,14 @@
 
     &__price {
 
-      &--actual, &--regular {
+      &--actual {
         font-size: .9rem;
       }
     }
 
     &__installments {
       font-size: .8rem;
+      display: inline-block;
     }
 
     &__image {
