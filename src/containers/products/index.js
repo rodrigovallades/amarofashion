@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import Product from '../../components/Product'
 import Cart from '../cart'
+import Loader from '../../components/Loader'
 import { getProducts, setFilter } from '../../modules/products'
 
 import './products.css'
@@ -36,6 +37,9 @@ export class Products extends Component {
   render() {
     return (
       <div>
+        {this.props.loading && (
+          <Loader />
+        )}
         <h1 className="app__title">Products ({this.props.products.length})</h1>
         {this.props.cart.length > 0 && (
           <Cart />
