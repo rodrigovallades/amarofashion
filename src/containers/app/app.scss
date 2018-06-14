@@ -9,12 +9,14 @@
   }
 
   &__logo {
-    width: auto;
     z-index: 900;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    margin: 15px;
+    width: 100%;
+    position: fixed;
+    background-color: #fff;
+    text-align: center;
+    padding: 15px;
+    top: 0;
+    left: 0;
 
     svg {
       height: 1rem;
@@ -24,6 +26,7 @@
   }
 
   &__container {
+    padding-top: 50px;
     padding-left: .5rem;
     padding-right: .5rem;
   }
@@ -32,22 +35,15 @@
 
     &__logo {
       z-index: 900;
-      margin: 20px;
+      padding: 20px;
 
       svg {
         height: 2.2rem;
       }
     }
 
-
-
-
-    &__title {
-      font-size: 1.8rem;
-      margin: 1rem 0;
-    }
-
     &__container {
+      padding-top: 80px;
       padding-left: 3rem;
       padding-right: 3rem;
     }

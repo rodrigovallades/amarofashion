@@ -1,0 +1,8 @@
+@import '../styles/_variables.scss';
+@import '../styles/_mixins.scss';
+
+.filter {
+  border-width: 1px;
+  border-style: solid;
+  border-color: $subtleAccent;
+}

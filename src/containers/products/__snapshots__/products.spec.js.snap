@@ -17,13 +17,34 @@ exports[`Products container renders "Products" deep correctly 1`] = `
       />
     </svg>
   </div>
-  <h1
-    className="app__title"
+  <div
+    className="products__toolbar"
   >
-    Products (
-    0
-    )
-  </h1>
+    <h1
+      className="products__title"
+    >
+      Products (
+      0
+      )
+    </h1>
+    <div
+      className="products__filter-sale "
+      onClick={[Function]}
+    >
+      Show only products on sale
+    </div>
+  </div>
+  <div
+    className="products__filter"
+  >
+    <input
+      className="filter"
+      onChange={[Function]}
+      placeholder="Filter by product name"
+      type="text"
+      value=""
+    />
+  </div>
   <div
     className="products"
   />

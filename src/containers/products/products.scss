@@ -1,9 +1,67 @@
 @import '../../styles/_mixins.scss';
+@import '../../styles/_variables.scss';
 
 .products {
+
+  &__toolbar {
+    margin-bottom: 10px;
+  }
+
+  &__filter-sale {
+    cursor: pointer;
+    padding: .4rem;
+    border: 1px solid $subtleAccent;
+    user-select: none;
+    text-align: center;
+    font-size: .85rem;
+    background-color: $mainAccent;
+    border-color: $mainAccent;
+    color: $mainAccentFont
+  }
+
+  &__filter-sale--active {
+    background-color: $priceHighlight;
+    border-color: $priceHighlight;
+    color: $mainAccentFont;
+  }
+
+  &__filter .filter {
+    padding: .4rem;
+    width: 100%;
+    outline: none;
+    font-size: .85rem;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    margin: .5rem 0;
+  }
 
   @include breakpoint(small) {
     display: flex;
     flex-wrap: wrap;
+
+    &__toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  @include breakpoint(medium) {
+
+    &__filter-sale {
+      font-size: 1rem;
+    }
+
+    &__filter .filter {
+      padding: .8rem;
+      font-size: 1rem;
+    }
+
+    &__title {
+      font-size: 1.8rem;
+      margin: 1rem 0;
+    }
   }
 }
