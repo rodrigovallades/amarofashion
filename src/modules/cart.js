@@ -31,33 +31,17 @@ export default (state = initialState, action) => {
 }
 
 // action creators
-export const add = product => {
-  return dispatch => {
-    dispatch({
-      type: actions.CART_ADD,
-      product
-    })
-    dispatch({
-      type: actions.TOGGLE_CART,
-      payload: true
-    })
-  }
-}
+export const add = product => ({
+  type: actions.CART_ADD,
+  product
+})
 
-export const remove = product => {
-  return dispatch => {
-    dispatch({
-      type: actions.CART_REMOVE,
-      product
-    })
-  }
-}
+export const remove = product => ({
+  type: actions.CART_REMOVE,
+  product
+})
 
-export const toggle = toggle => {
-  return dispatch => {
-    dispatch({
-      type: actions.TOGGLE_CART,
-      payload: toggle
-    })
-  }
-}
+export const toggle = toggle => ({
+  type: actions.TOGGLE_CART,
+  payload: toggle
+})
