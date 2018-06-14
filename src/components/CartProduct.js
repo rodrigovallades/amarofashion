@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { remove } from '../modules/cart'
+import { remove, update } from '../modules/cart'
 
 import './CartProduct.css'
 
@@ -17,11 +17,15 @@ export class CartProduct extends Component {
             <img src={this.props.image} alt="Product in cart" />
           }
         </div>
-        <div className="cart__info">
+        <div className="cart__item-info">
           <div className="cart__item-name">{this.props.name}</div>
           <div className="cart__item-details">
             <span className="cart__item-size">Size: {this.props.size}</span>
-            <span className="cart__item-quantity">Quantity: {this.props.quantity}</span>
+          </div>
+          <div className="cart__item-quantity-actions">
+            <div className="cart__item-quantity-control" onClick={() => this.props.update(this.props.sku, this.props.quantity, 'remove')}>-</div>
+            <span className="cart__item-quantity">{this.props.quantity}</span>
+            <div className="cart__item-quantity-control" onClick={() => this.props.update(this.props.sku, this.props.quantity, 'add')}>+</div>
           </div>
           <div className="cart__item-price">R$ {this.props.price.replace('.', ',')}</div>
         </div>
@@ -31,7 +35,8 @@ export class CartProduct extends Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  remove
+  remove,
+  update
 }, dispatch)
 
 export default connect(

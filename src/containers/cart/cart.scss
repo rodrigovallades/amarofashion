@@ -59,12 +59,6 @@
     width: 100%;
   }
 
-  &__info {
-    flex: 1 1 0%;
-    overflow: hidden;
-    position: relative;
-  }
-
   &__title {
     margin: 0.5rem;
     font-size: 1.3rem;
@@ -90,7 +84,7 @@
     margin-top: -.5rem;
     cursor: pointer;
 
-    &::before {      
+    &::before {
       height: 1rem;
       line-height: 1rem;
       width: 1rem;

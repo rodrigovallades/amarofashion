@@ -22,9 +22,13 @@ describe('Cart action creators', () => {
       type: actions.CART_REMOVE,
       sku: 'sku1234'
     })
-    expect(update({ quantity: 1, updated: 'product' }, 1)).toEqual({
-      type: actions.CART_UPDATE_ITEM,
-      payload: { idx: 1, updated: { quantity: 2, updated: 'product' } }
+    expect(update('sku1234', 2, 'add')).toEqual({
+      type: actions.CART_UPDATE_QUANTITY_ADD,
+      sku: 'sku1234'
+    })
+    expect(update('sku1234', 1, 'remove')).toEqual({
+      type: actions.CART_REMOVE,
+      sku: 'sku1234'
     })
   })
 })
@@ -81,15 +85,15 @@ describe('Cart reducer', () => {
     )
   })
 
-  it(`should handle ${actions.CART_UPDATE_ITEM}`, () => {
+  it(`should handle ${actions.CART_UPDATE_QUANTITY_ADD}`, () => {
     expect(
       reducer(undefined, {
-        type: actions.CART_UPDATE_ITEM,
-        payload: { idx: 1, updated: { name: 'product1' } }
+        type: actions.CART_UPDATE_QUANTITY_ADD,
+        sku: 'sku1234'
       })
     ).toEqual(
       {
-        data: [{ name: 'product1' }],
+        data: [],
         isActive: true,
       }
     )

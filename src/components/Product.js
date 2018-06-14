@@ -13,7 +13,6 @@ export class Product extends Component {
     this.state = {
       size: '',
       sku: '',
-      quantity: 1,
       canAdd: false,
       triedToAdd: false
     }
@@ -62,19 +61,16 @@ export class Product extends Component {
         name: this.props.name,
         image: this.props.image,
         price: this.props.actual_price.split(" ")[1].replace(',', '.'),
-        quantity: this.state.quantity
       }
 
       const idx = this.props.cart.findIndex(p => { return p.sku === product.sku })
 
       // if product is not already added to the cart
       if (idx === -1) {
-        this.setState({ quantity: 1 })
         product.quantity = 1
         this.props.add(product)
       } else {
-        this.setState({ quantity: this.state.quantity + 1 })        
-        this.props.update(product, idx)
+        this.props.update(product.sku, null, 'add')
       }
     }
   }
