@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
     case actions.CART_ADD:
       return {
         ...state,
-        data: [...state.data, action.product],
+        data: [action.product, ...state.data],
         isActive: true,
       };
     case actions.CART_REMOVE:
@@ -22,11 +22,16 @@ export default (state = initialState, action) => {
         data: state.data.filter(p => action.sku !== p.sku),
       };
     case actions.CART_UPDATE_ITEM:
-      console.log(action.updated)
       return {
-        ...state
+        ...state,
+        data: [
+          ...state.data.slice(0, action.payload.idx),
+          action.payload.updated,
+          ...state.data.slice(action.payload.idx+1)
+        ],
+        isActive: true,
       };
-    case actions.TOGGLE_CART:
+    case actions.TOGGLE_CART :
       return {
         ...state,
         isActive: action.payload,
@@ -47,9 +52,15 @@ export const remove = sku => ({
   sku
 })
 
-export const update = updated => ({
+export const update = (updated, idx) => ({
   type: actions.CART_UPDATE_ITEM,
-  updated
+  payload: {
+      idx,
+      updated: {
+        ...updated,
+        quantity: updated.quantity + 1
+      }
+   }
 })
 
 export const toggle = toggle => ({
