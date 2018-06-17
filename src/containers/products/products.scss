@@ -4,7 +4,7 @@
 .products {
 
   &__toolbar {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
   }
 
   &__filter-sale {
@@ -31,6 +31,10 @@
     color: $mainAccentFont;
   }
 
+  &__filter {
+    margin-bottom: 5px;
+  }
+
   &__filter .filter {
     padding: .4rem;
     width: 100%;
@@ -47,7 +51,11 @@
     display: flex;
     flex-wrap: wrap;
 
-    &__toolbar {
+    &__filter {
+      margin-bottom: 0;
+    }
+
+    &__toolbar {      
       display: flex;
       justify-content: space-between;
       align-items: center;
