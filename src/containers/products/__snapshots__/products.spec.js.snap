@@ -31,7 +31,7 @@ exports[`Products container renders "Products" deep correctly 1`] = `
       className="products__filter-sale "
       onClick={[Function]}
     >
-      Show only products on sale
+      Filter on sale
     </div>
   </div>
   <div
