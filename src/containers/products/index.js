@@ -25,7 +25,7 @@ export class Products extends Component {
       this.props.getProducts()
   }
 
-  renderProducts() {
+  renderProducts = () => {
     return this.filter(this.props.products).map((product, i) => {
       return (
         <Product
@@ -43,13 +43,13 @@ export class Products extends Component {
     })
   }
 
-  updateSearch(inputValue) {
+  updateSearch = event => {
     this.setState({
-      filterText: inputValue
+      filterText: event.target.value
     })
   }
 
-  filter() {
+  filter = () => {
     let filtered = this.state.filterSale ? this.props.products.filter(product => product.on_sale) : this.props.products
     return filtered.filter(product => product.name.toLowerCase().indexOf(this.state.filterText.toLowerCase()) >= 0)
   }
@@ -68,7 +68,7 @@ export class Products extends Component {
           <div className={`products__filter-sale ${this.state.filterSale ? 'products__filter-sale--active' : ''}`} onClick={() => this.setState({ filterSale: !this.state.filterSale })}>Filter on sale</div>
         </div>
         <div className="products__filter">
-          <Filter updateSearch={this.updateSearch.bind(this)} searchText={this.state.filterText} placeholder='Filter by product name' />
+          <Filter updateSearch={this.updateSearch} searchText={this.state.filterText} placeholder='Filter by product name' />
         </div>
         {this.props.cart.length > 0 && (
           <Cart />

@@ -16,10 +16,9 @@ export class Product extends Component {
       canAdd: false,
       triedToAdd: false
     }
-    this.renderSizes = this.renderSizes.bind(this)
   }
 
-  renderSizes() {
+  renderSizes = () => {
     return this.props.sizes && this.props.sizes.length ? (
       <div className={`product__sizes ${this.state.triedToAdd && !this.state.canAdd ? 'product__sizes--invalid' : ''}`}>
         {
@@ -35,7 +34,7 @@ export class Product extends Component {
     ) : null
   }
 
-  renderPrices() {
+  renderPrices = () => {
     return (
       <div className="product__prices">
         { this.props.actual_price && this.props.actual_price !== this.props.regular_price &&
@@ -47,11 +46,11 @@ export class Product extends Component {
     )
   }
 
-  updateSizes(size) {
+  updateSizes = size => {
     this.setState({ size: size.size, sku: size.sku, canAdd: true })
   }
 
-  addToCart() {
+  addToCart = () => {
     this.setState({ triedToAdd: true })
     if (this.state.canAdd) {
 
