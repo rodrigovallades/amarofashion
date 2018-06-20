@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import { add, remove, update } from '../modules/cart'
 
@@ -97,6 +98,20 @@ export class Product extends Component {
       </div>
     )
   }
+}
+
+Product.propTypes = {
+  sizes: PropTypes.array,
+  actual_price: PropTypes.string,
+  regular_price: PropTypes.string,
+  installments: PropTypes.string,
+  name: PropTypes.string,
+  image: PropTypes.string,
+  onSale: PropTypes.bool,
+  discount_percentage: PropTypes.string,
+  cart: PropTypes.array,
+  add: PropTypes.func,
+  update: PropTypes.func,
 }
 
 const mapStateToProps = state => ({

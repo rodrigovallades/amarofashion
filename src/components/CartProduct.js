@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import { remove, update } from '../modules/cart'
 
@@ -32,6 +33,16 @@ export class CartProduct extends Component {
       </div>
     )
   }
+}
+
+CartProduct.propTypes = {
+  image: PropTypes.string,
+  name: PropTypes.string,
+  size: PropTypes.string,
+  quantity: PropTypes.number,
+  price: PropTypes.string,
+  remove: PropTypes.func,
+  update: PropTypes.func,
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({

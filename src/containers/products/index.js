@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import Product from '../../components/Product'
 import Cart from '../cart'
@@ -79,6 +80,13 @@ export class Products extends Component {
       </div>
     )
   }
+}
+
+Products.propTypes = {
+  products: PropTypes.array,
+  cart: PropTypes.array,
+  getProducts: PropTypes.func,
+  loading: PropTypes.bool,
 }
 
 Products.defaultProps = {

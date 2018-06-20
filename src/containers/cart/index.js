@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import CartProduct from '../../components/CartProduct'
 import { remove, toggle } from '../../modules/cart'
@@ -36,6 +37,11 @@ export class Cart extends Component {
       </div>
     )
   }
+}
+
+Cart.propTypes = {
+  cart: PropTypes.object,
+  toggle: PropTypes.func,
 }
 
 Cart.defaultProps = {
