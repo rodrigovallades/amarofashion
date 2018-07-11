@@ -28,9 +28,10 @@ export class Products extends Component {
 
   renderProducts = () => {
     return this.filter(this.props.products).map((product, i) => {
+
       return (
         <Product
-          key={i}
+          key={`${product.name.replace(/\s/g, '')}-${product.color_slug}`}
           image={product.image}
           name={product.name}
           regular_price={product.regular_price}

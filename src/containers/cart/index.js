@@ -22,7 +22,7 @@ export class Cart extends Component {
               </div>
               <div className="cart__container">
                 {this.props.cart.data.map((product, i) =>
-                  <CartProduct key={i} image={product.image} name={product.name} size={product.size} quantity={product.quantity} price={product.price} sku={product.sku} />
+                  <CartProduct key={product.sku} image={product.image} name={product.name} size={product.size} quantity={product.quantity} price={product.price} sku={product.sku} />
                 )}
               </div>
             </div>
