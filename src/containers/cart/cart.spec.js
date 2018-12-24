@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import immutable from 'immutability-helper';
 
 import { Cart } from './index';
 
@@ -33,13 +34,11 @@ describe('Cart', function () {
 
 	describe('with cart open', () => {
 		beforeAll(() => {
-			wrapper = setup({
-        ...props,
-        cart: {
-					...props.cart,
-					isActive: true,
-				}
-      });
+			wrapper.setProps(immutable(wrapper.instance().props, {
+				cart: {
+					isActive: { $set: true },
+				},
+			}));
 		});
 
 		it('should render products and sum', () => {
