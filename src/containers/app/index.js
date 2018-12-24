@@ -17,7 +17,7 @@ const App = () => (
       <Switch>
         <Route path="/products" exact component={Products} />
         <Route path="/cart" exact component={Cart} />
-        <Redirect from="/" to="/products" fullscreen={true} />
+        <Redirect from="/" to="/products" />
       </Switch>
     </div>
   </Router>

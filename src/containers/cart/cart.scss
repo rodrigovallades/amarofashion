@@ -99,8 +99,15 @@
   &__container {
     display: flex;
     flex-direction: column;
-    overflow: auto;
-  }
+		overflow: auto;
+
+		&--empty {
+			height: 100%;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
 
   &__total {
     background-color: #fff;

@@ -12,7 +12,6 @@ const props = {
 		isActive: false,
 		data: [],
 	},
-	fullscreen: false,
 }
 
 function setup(ownProps = props) {

@@ -72,9 +72,7 @@ export class Products extends Component {
         <div className="products__filter">
           <Filter updateSearch={this.updateSearch} searchText={this.state.filterText} placeholder='Filter by product name' />
         </div>
-        {this.props.cart.length > 0 && (
-          <Cart />
-        )}
+				<Cart />
         <div className="products">
           {this.renderProducts()}
         </div>
