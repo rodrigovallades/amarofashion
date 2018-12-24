@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 import Products from '../products';
+import Cart from '../cart'
 
 import './app.css';
 
@@ -15,7 +16,8 @@ const App = () => (
     <div className="app__container">
       <Switch>
         <Route path="/products" exact component={Products} />
-        <Redirect from="/" to="/products" />
+        <Route path="/cart" exact component={Cart} />
+        <Redirect from="/" to="/products" fullscreen={true} />
       </Switch>
     </div>
   </Router>

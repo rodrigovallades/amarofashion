@@ -1,18 +1,51 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import renderer from 'react-test-renderer';
 
-import { Cart } from './index'
+import { Cart } from './index';
 
-describe('Cart container', function () {
+const mockToggle = jest.fn();
 
-  it('renders "Cart" deep correctly', () => {
-    const tree = renderer.create(<Cart/>);
-    expect(tree).toMatchSnapshot();
-  });
+const props = {
+	toggle: mockToggle,
+	cart: {
+		isActive: false,
+		data: [],
+	},
+	fullscreen: false,
+}
 
-  it('renders "Cart" shallow correctly', () => {
-    const component = shallow(<Cart/>);
-    expect(component.exists()).toEqual(true);
-  });
+function setup(ownProps = props) {
+  return shallow(<Cart {...ownProps} />);
+}
+
+describe('Cart', function () {
+	let wrapper;
+
+	describe('with cart closed', () => {
+		beforeAll(() => {
+			wrapper = setup();
+		});
+
+		it('should render toggle icon', () => {
+			expect(wrapper.find('.cart__toggler').exists()).toBe(true);
+		});
+	});
+
+	describe('with cart open', () => {
+		beforeAll(() => {
+			wrapper = setup({
+        ...props,
+        cart: {
+					...props.cart,
+					isActive: true,
+				}
+      });
+		});
+
+		it('should render products and sum', () => {
+			expect(wrapper.find('.cart__container').exists()).toBe(true);
+			expect(wrapper.find('.cart__total').exists()).toBe(true);
+			expect(wrapper.find('.cart__container').exists()).toBe(true);
+		});
+	});
 })
