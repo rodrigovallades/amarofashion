@@ -63,7 +63,7 @@ export class Product extends Component {
         price: this.props.actual_price.split(" ")[1].replace(',', '.'),
       }
 
-      const idx = this.props.cart.findIndex(p => { return p.sku === product.sku })
+      const idx = this.props.cart.data.findIndex(p => { return p.sku === product.sku })
 
       // if product is not already added to the cart
       if (idx === -1) {
@@ -109,13 +109,13 @@ Product.propTypes = {
   image: PropTypes.string,
   onSale: PropTypes.bool,
   discount_percentage: PropTypes.string,
-  cart: PropTypes.array,
+  cart: PropTypes.object,
   add: PropTypes.func,
   update: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
-  cart: state.cart.data
+  cart: state.cart
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
