@@ -53,16 +53,9 @@ export class Products extends Component {
 
         return (
           <Product
-            actual_price={product.actual_price}
-            discount_percentage={product.discount_percentage}
             handleAddToCart={this.handleAddToCart}
-            image={product.image}
-            installments={product.installments}
             key={`${product.name.replace(/\s/g, '')}-${product.color_slug}`}
-            name={product.name}
-            onSale={product.on_sale}
-            regular_price={product.regular_price}
-            sizes={product.sizes}
+            product={product}
           />
         )
       })
