@@ -1,0 +1,21 @@
+body {
+  font-family: Gotham,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+@import './styles/components/index.css';
+@import './styles/containers/index.css';
+
