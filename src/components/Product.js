@@ -5,8 +5,6 @@ import PropTypes from 'prop-types'
 
 import { add, remove, update } from '../modules/cart'
 
-import './Product.css'
-
 export class Product extends Component {
 
   constructor(props) {

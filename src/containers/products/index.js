@@ -9,8 +9,6 @@ import Loader from '../../components/Loader'
 import Filter from '../../components/Filter'
 import { getProducts } from '../../modules/products'
 
-import './products.css'
-
 export class Products extends Component {
 
   constructor(props) {

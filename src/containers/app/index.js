@@ -8,8 +8,6 @@ import {
 
 import Products from '../products';
 
-import './app.css';
-
 const App = () => (
   <Router>
     <div className="app__container">
