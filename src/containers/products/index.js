@@ -9,6 +9,8 @@ import Loader from '../../components/Loader'
 import Filter from '../../components/Filter'
 import { getProducts } from '../../modules/products'
 
+import { add, update } from '../../modules/cart'
+
 import './products.css'
 
 export class Products extends Component {
@@ -32,20 +34,34 @@ export class Products extends Component {
     }
   }
 
+  handleAddToCart = product => {
+    const { cart, add, update } = this.props;
+    const idx = cart.data.findIndex(p => { return p.sku === product.sku })
+
+    //if product is not already added to the cart
+    if (idx === -1) {
+      product.quantity = 1
+      add(product)
+    } else {
+      update(product.sku, null, 'add')
+    }
+  };
+
   renderProducts = () => {
     if (this.props.products.data.length) {
       return this.filter(this.props.products).map((product, i) => {
 
         return (
           <Product
-            key={`${product.name.replace(/\s/g, '')}-${product.color_slug}`}
-            image={product.image}
-            name={product.name}
-            regular_price={product.regular_price}
             actual_price={product.actual_price}
             discount_percentage={product.discount_percentage}
+            handleAddToCart={this.handleAddToCart}
+            image={product.image}
             installments={product.installments}
+            key={`${product.name.replace(/\s/g, '')}-${product.color_slug}`}
+            name={product.name}
             onSale={product.on_sale}
+            regular_price={product.regular_price}
             sizes={product.sizes}
           />
         )
@@ -94,10 +110,13 @@ export class Products extends Component {
 
 const mapStateToProps = state => ({
   products: state.products,
+  cart: state.cart,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getProducts
+  getProducts,
+  add,
+  update,
 }, dispatch)
 
 export default connect(

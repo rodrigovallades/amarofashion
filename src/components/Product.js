@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-
-import { add, remove, update } from '../modules/cart'
 
 import './Product.css'
 
-export class Product extends Component {
+export default class Product extends Component {
+
+  static propTypes = {
+    actual_price: PropTypes.string.isRequired,
+    discount_percentage: PropTypes.string.isRequired,
+    handleAddToCart: PropTypes.func.isRequired,
+    image: PropTypes.string.isRequired,
+    installments: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    onSale: PropTypes.bool.isRequired,
+    regular_price: PropTypes.string.isRequired,
+    sizes: PropTypes.array.isRequired,
+  };
 
   constructor(props) {
     super(props)
@@ -54,7 +62,6 @@ export class Product extends Component {
   addToCart = () => {
     this.setState({ triedToAdd: true })
     if (this.state.canAdd) {
-
       const product = {
         sku: this.state.sku,
         size: this.state.size,
@@ -63,15 +70,7 @@ export class Product extends Component {
         price: this.props.actual_price.split(" ")[1].replace(',', '.'),
       }
 
-      const idx = this.props.cart.data.findIndex(p => { return p.sku === product.sku })
-
-      // if product is not already added to the cart
-      if (idx === -1) {
-        product.quantity = 1
-        this.props.add(product)
-      } else {
-        this.props.update(product.sku, null, 'add')
-      }
+      this.props.handleAddToCart(product);
     }
   }
 
@@ -99,32 +98,3 @@ export class Product extends Component {
     )
   }
 }
-
-Product.propTypes = {
-  sizes: PropTypes.array,
-  actual_price: PropTypes.string,
-  regular_price: PropTypes.string,
-  installments: PropTypes.string,
-  name: PropTypes.string,
-  image: PropTypes.string,
-  onSale: PropTypes.bool,
-  discount_percentage: PropTypes.string,
-  cart: PropTypes.object,
-  add: PropTypes.func,
-  update: PropTypes.func,
-}
-
-const mapStateToProps = state => ({
-  cart: state.cart
-})
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  add,
-  remove,
-  update
-}, dispatch)
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Product)

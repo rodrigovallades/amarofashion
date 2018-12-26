@@ -3,10 +3,10 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { ConnectedRouter } from 'react-router-redux';
-import { store, persistor, history } from './store';
-import App from './containers/app';
 import 'normalize.css/normalize.css';
 
+import { store, persistor, history } from './store';
+import App from './containers/app';
 import './index.css'
 
 import registerServiceWorker from './registerServiceWorker';
