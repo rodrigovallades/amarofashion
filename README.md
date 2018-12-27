@@ -1,4 +1,4 @@
-# `AMARO front-end challenge` 
+# `AMARO front-end challenge`
 
 ## Preview
 
@@ -15,7 +15,7 @@ https://amaro-vallades.herokuapp.com/
 - [x] React 16 + Redux 5 + React-Router 4
 - [x] ES6 (consts, lets, arrow functions, spread operator, template strings...)
 - [x] Persisting Redux store on localStorage
-- [x] Tests with Jest + Enzyme
+- [x] Unit tests with Jest + Enzyme
 - [x] SCSS
 - [x] BEM CSS naming
 - [x] Flexbox
@@ -31,7 +31,7 @@ I believe I met all the requirements for this challenges, but I also included so
 - Added a text filter by name;
 - Some product images are broken in the included JSON file. I made sure to treat this exception and add a placeholder image when no image found;
 - If a product size is not available, it won't be shown to the user. I believe this is a better UX approach than showing a disabled button;
-- User can add quantity and remove products from cart.
+- User can add quantity and remove products directly from cart.
 
 ## Getting started
 

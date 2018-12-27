@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: true
       };
-    case actions.PRODUCTS_FETCH_SUCCESS:      
+    case actions.PRODUCTS_FETCH_SUCCESS:
       return {
         ...state,
         loading: false,
