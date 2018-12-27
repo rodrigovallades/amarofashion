@@ -5,8 +5,6 @@ import PropTypes from 'prop-types'
 
 import { remove, update } from '../modules/cart'
 
-import './CartProduct.css'
-
 export class CartProduct extends Component {
 
   render() {

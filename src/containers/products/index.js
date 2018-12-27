@@ -11,8 +11,6 @@ import { getProducts } from '../../modules/products'
 
 import { add, update } from '../../modules/cart'
 
-import './products.css'
-
 export class Products extends Component {
 
 	static propTypes = {

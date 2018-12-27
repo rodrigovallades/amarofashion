@@ -1,5 +1,5 @@
-@import '../../styles/_mixins.scss';
-@import '../../styles/_variables.scss';
+@import '../_mixins.scss';
+@import '../_variables.scss';
 
 .products {
 
@@ -55,7 +55,7 @@
       margin-bottom: 0;
     }
 
-    &__toolbar {      
+    &__toolbar {
       display: flex;
       justify-content: space-between;
       align-items: center;

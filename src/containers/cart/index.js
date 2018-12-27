@@ -6,8 +6,6 @@ import PropTypes from 'prop-types'
 import CartProduct from '../../components/CartProduct'
 import { remove, toggle } from '../../modules/cart'
 
-import './cart.css'
-
 export class Cart extends Component {
 
 	static propTypes = {

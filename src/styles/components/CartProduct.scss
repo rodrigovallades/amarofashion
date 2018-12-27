@@ -1,5 +1,5 @@
-@import '../styles/_mixins.scss';
-@import '../styles/_variables.scss';
+@import '../_mixins.scss';
+@import '../_variables.scss';
 
 .cart__item {
   padding: .5rem;
@@ -40,7 +40,7 @@
     }
   }
 
-  &-quantity {    
+  &-quantity {
     font-size: .85rem;
     width: 1.8rem;
     display: inline-block;

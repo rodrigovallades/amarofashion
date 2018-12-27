@@ -9,8 +9,6 @@ import {
 import Products from '../products';
 import Cart from '../cart'
 
-import './app.css';
-
 const App = () => (
   <Router>
     <div className="app__container">
