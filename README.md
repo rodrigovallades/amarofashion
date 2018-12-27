@@ -16,6 +16,7 @@ https://amaro-vallades.herokuapp.com/
 - [x] ES6 (consts, lets, arrow functions, spread operator, template strings...)
 - [x] Persisting Redux store on localStorage
 - [x] Unit tests with Jest + Enzyme
+- [x] CI/CD integration with Codeship + ZEIT Now on every commit
 - [x] SCSS
 - [x] BEM CSS naming
 - [x] Flexbox
