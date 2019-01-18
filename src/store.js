@@ -5,6 +5,7 @@ import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import createHistory from 'history/createBrowserHistory';
+import LogRocket from 'logrocket';
 
 import rootReducer from './modules';
 
@@ -19,7 +20,8 @@ export const history = createHistory();
 const enhancers = [];
 const middleware = [
   thunk,
-  routerMiddleware(history)
+  routerMiddleware(history),
+  LogRocket.reduxMiddleware()
 ];
 
 if (process.env.NODE_ENV === 'development') {
