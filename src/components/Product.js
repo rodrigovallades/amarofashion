@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import ProductImage from './ProductImage'
+
 export default class Product extends Component {
 
   static propTypes = {
@@ -80,9 +82,11 @@ export default class Product extends Component {
       )
     }
 
-    if (product.image) {
-      output.image = (<img src={product.image} alt="Product" />)
-    }
+    output.image = (<ProductImage
+      width={440}
+      name={product.name}
+      src={product.image}
+    />)
 
     return (
       <div className={`product ${product.onSale ? 'product--sale' : ''}`} onClick={product.onClick}>
